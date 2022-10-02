@@ -7,7 +7,7 @@ export const TodoItem = ({ item, onDeletedTodo, onToogleTodo }) => {
          className="list-group-item d-flex justify-content-between"
       >
          <span
-            className={`align-self-center ${item.done ? "text-decoration-line-through" : ""}`}
+            className={`align-self-center ${item.done ? "task-through" : ""}`}
          >
             {item.todo}
          </span>
