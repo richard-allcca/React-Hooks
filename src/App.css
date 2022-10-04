@@ -1,0 +1,9 @@
+.nav-list {
+   display: flex;
+}
+
+.nav-list_item {
+   margin-right: 5px;
+   list-style: none;
+   cursor: pointer;
+}
