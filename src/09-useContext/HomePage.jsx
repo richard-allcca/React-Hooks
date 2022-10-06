@@ -11,7 +11,7 @@ export const HomePage = () => {
          <h1>HomePage <small>{user?.name}</small> </h1>
          <hr />
          <pre>
-            {JSON.stringify(email)}
+            {JSON.stringify(user?.email)}
          </pre>
       </>
    )

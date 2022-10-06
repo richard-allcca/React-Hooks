@@ -24,7 +24,7 @@ export const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarNav">
                <ul className="navbar-nav">
 
-                  <NavLink className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+                  <NavLink className={({ isActive }) => `nav-link ${!isActive ? 'active' : ''}`}
                      to="/">
                      Home
                   </NavLink>
