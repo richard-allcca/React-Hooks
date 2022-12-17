@@ -12,7 +12,7 @@ export const TodoApp = () => {
 
    return (
       <>
-         <h1>TodoApp: {countTodo} <small>pendientes:{pendingTodo}</small></h1>
+         <h1>TodoApp: { countTodo } <small>pendientes:{ pendingTodo }</small></h1>
          <hr />
 
          <div className="row">
@@ -23,10 +23,10 @@ export const TodoApp = () => {
                      stateTodo.map((td) => {
 
                         return (
-                           <TodoItem key={td.id}
-                              item={td}
-                              onDeletedTodo={onDeletedTodo}
-                              onToogleTodo={onToogleTodo}
+                           <TodoItem key={ td.id }
+                              item={ td }
+                              onDeletedTodo={ onDeletedTodo }
+                              onToogleTodo={ onToogleTodo }
                            />
                         )
                      })
@@ -39,7 +39,7 @@ export const TodoApp = () => {
                <h4>Agregar Tarea</h4>
                <hr />
 
-               <TodoForm onNewTodo={onNewTodo} />
+               <TodoForm onNewTodo={ onNewTodo } />
             </div>
 
          </div>

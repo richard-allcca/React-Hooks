@@ -31,7 +31,7 @@ import { Padre } from './07-tarea-memo/Padre';
 import { TodoApp } from './08-useReducer/TodoApp';
 
 // useContext
-import { Mainpage } from './09-useContext/Mainpage';
+import { Mainpage } from './09-useContext-router/Mainpage';
 
 
 
@@ -39,7 +39,7 @@ import { Mainpage } from './09-useContext/Mainpage';
 const App = () => {
    return (
       <>
-      <Mainpage/>
+         <Mainpage />
       </>
    )
 }
