@@ -1,35 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useEffect } from "react";
+import { useState } from "react";
 
 export const useFetch = (url) => {
+	const [state, setState] = useState({
+		data: null,
+		isLoading: true,
+		error: null,
+	});
 
-   const [ state, setState ] = useState({
-      data: null,
-      isLoading: true,
-      error: null
-   })
+	const getQuote = async () => {
+		let resp = await fetch(url);
+		let data = await resp.json();
 
-   const getQuote = async () => {
+		setState({
+			data,
+			isLoading: false,
+			error: null,
+		});
+	};
 
-      let resp = await fetch(url);
-      let data = await resp.json();
+	useEffect(() => {
+		getQuote();
+	}, [url]);
 
-      setState({
-         data,
-         isLoading: false,
-         error: null
-      })
-
-   }
-
-   useEffect(() => {
-
-      getQuote();
-
-   }, [ url ])
-
-
-   return state;
-}
+	return state;
+};

@@ -1,56 +1,48 @@
 import { useEffect, useReducer } from "react";
 import { todoReducer } from "../08-useReducer/todoReducer";
 
-
 export const useTodo = () => {
+	const initialState = [];
 
-   const initialState = [];
+	const init = () => {
+		return JSON.parse(localStorage.getItem("ls-todo")) || [];
+	};
 
-   const init = () => {
-      return JSON.parse(localStorage.getItem('ls-todo')) || [];
-   }
+	// State
 
-   // State
+	const [stateTodo, dispatch] = useReducer(todoReducer, initialState, init);
 
-   const [ stateTodo, dispatch ] = useReducer(todoReducer, initialState, init)
+	useEffect(() => {
+		localStorage.setItem("ls-todo", JSON.stringify(stateTodo));
+	}, [stateTodo]);
 
-   useEffect(() => {
+	// Methods
 
-      localStorage.setItem("ls-todo", JSON.stringify(stateTodo))
+	const onNewTodo = (newTodo) => {
+		dispatch({ type: "ADD-TASK", payload: newTodo });
+	};
 
-   }, [ stateTodo ])
+	const onDeletedTodo = (id) => {
+		dispatch({ type: "DELETED-TASK", payload: id });
+		localStorage.setItem("ls-todo", stateTodo);
+	};
 
-   // Methods
+	const onToogleTodo = (id) => {
+		dispatch({ type: "UPDATE-DONE", payload: id });
+	};
 
-   const onNewTodo = (newTodo) => {
+	let countTodo = stateTodo.length;
 
-      dispatch({ type: "ADD-TASK", payload: newTodo })
+	let pendingTodo = stateTodo.filter((todo) => !todo.done).length;
 
-   }
+	return {
+		stateTodo,
 
-   const onDeletedTodo = (id) => {
+		onNewTodo,
+		onDeletedTodo,
+		onToogleTodo,
 
-      dispatch({ type: 'DELETED-TASK', payload: id })
-      localStorage.setItem('ls-todo', stateTodo)
-   }
-
-   const onToogleTodo = (id) => {
-
-      dispatch({ type: 'UPDATE-DONE', payload: id })
-   }
-
-   let countTodo = stateTodo.length
-
-   let pendingTodo = stateTodo.filter(todo => !todo.done).length
-
-   return {
-      stateTodo,
-
-      onNewTodo,
-      onDeletedTodo,
-      onToogleTodo,
-
-      countTodo,
-      pendingTodo
-   }
-}
+		countTodo,
+		pendingTodo,
+	};
+};

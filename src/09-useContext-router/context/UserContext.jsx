@@ -8,16 +8,16 @@ export const UserProvider = ({ children }) => {
 
 
 
-   const data = {
-      id: 123,
-      name: 'Richard Allcca',
-      email: 'richard_allcca_llano@htomail.com'
-   }
+  const data = {
+    id: 123,
+    name: 'Richard Allcca',
+    email: 'richard_allcca_llano@htomail.com'
+  };
 
-   return (
-      <UserContext.Provider value={data}>
-         {children}
-      </UserContext.Provider>
-   )
+  return (
+    <UserContext.Provider value={ data }>
+      { children }
+    </UserContext.Provider>
+  );
 
-}
+};

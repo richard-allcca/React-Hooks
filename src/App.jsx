@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import './App.css'
+import './App.css';
 
 // UseState
 import Counter from './01-useState/Counter';
@@ -37,11 +37,12 @@ import { Mainpage } from './09-useContext-router/Mainpage';
 
 
 const App = () => {
-   return (
-      <>
-         <Mainpage />
-      </>
-   )
-}
+  return (
+    <>
+      {/* <Mainpage /> */ }
+      <Counter />
+    </>
+  );
+};
 
-export default App
+export default App;
