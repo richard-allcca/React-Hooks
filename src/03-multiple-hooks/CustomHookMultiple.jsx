@@ -4,6 +4,12 @@ import { useCounter, useFetch } from "../hooks";
 
 import { BloquoteComponent, Loading } from "./";
 
+/**
+ * NOTE - "!" en data convierte 'undefined' en true, y "!!" lo convierte en false
+ * - asi funciona como condicional, si data es true pasa a la siguiente condición si es false No
+ * - esto es para poder destructurar un valor que puede venir como undefined
+ */
+
 export const CustomHookMultiple = () => {
 	const { counter, increment } = useCounter(1);
 
@@ -34,9 +40,3 @@ export const CustomHookMultiple = () => {
 		</>
 	);
 };
-
-/**
- * NOTE - "!" en data convierte 'undefined' en true, y "!!" lo convierte en false
- * - asi funciona como condicional, si data es true pasa a la siguiente condición si es false No
- * - esto es para poder destructurar un valor que puede venir como undefined
- */
